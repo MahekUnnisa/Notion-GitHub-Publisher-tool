@@ -1,16 +1,21 @@
-const { Client } = require("@notionhq/client") 
-const dotenv = require('dotenv').config()
 
-const notion_key = process.env.NOTION_TOKEN
-const databaseId = process.env.NOTION_DATABASE_ID
+const express = require('express')
+const app = express()
+const path = require('path');
+const PORT = 3000
+//server
+app.listen(PORT, (error) =>{
+    if(!error)
+        console.log(`App is listening on port ${PORT}`)
+    else 
+        console.log("Error occurred, server can't start", error);
+    })
+//static files
+app.use('/static', express.static('static'))
 
-const notion = new Client({ 
-    auth: notion_key,
-    notionVersion:'2022-06-28',
-})
-//retrieve the database
-const getdata = async ()=> {
-    const response = await notion.databases.retrieve({ database_id: databaseId });
-    console.log(response);
-}
-getdata();
+//route
+app.get('/', (req, res)=>{
+    res.status(200);
+    res.sendFile(path.join(__dirname, 'routes/home.html'));
+});
+
