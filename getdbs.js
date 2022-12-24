@@ -2,12 +2,12 @@ const { Client } = require("@notionhq/client")
 const dotenv = require('dotenv').config()
 const notion_key = process.env.NOTION_TOKEN
 const databaseId = process.env.NOTION_DATABASE_ID
+const ids = []
 
 const notion = new Client({ 
     auth: notion_key,
     notionVersion:'2022-06-28',
 })
-
 //to get all the dbs
 const getdbs = async (ids) => {
     const response = await notion.databases.query({
@@ -28,9 +28,14 @@ const getdbs = async (ids) => {
         ids.push(s)
     }
     console.log(ids);
-}
+    for(j = 0; j<= ids.length-1;j++){
 
-module.exports = getdbs;
+
+    }
+}
+getdbs(ids)
+
+
 
 
 

@@ -13,9 +13,9 @@ const getchildren = async () => {
       const blockId = '5dd7cc77-a640-47a2-8c2e-936c6c138ac6';
       const response = await notion.blocks.children.list({
         block_id: blockId,
-        page_size: 50,
+        page_size: 100,
       });
       console.log(response);
 }
-
+getchildren()
 module.exports = getchildren;
