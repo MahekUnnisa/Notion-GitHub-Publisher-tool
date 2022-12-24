@@ -23,18 +23,16 @@ const getdbs = async () => {
         },
       ],
     });
+  //get the size of the results array
     const size = response.results.length
+    //get all the dieas in the file
     for (i = 0; i <= size-1; i++) {
         const date = JSON.stringify(response.results[i].id)
         fs.appendFileSync('./test2.txt', date)
     }
-    // const data = response.results[0].id
-    // console.log(data);
     
-
     // const date = JSON.stringify(response)
     // fs.writeFile('./test.json', date, (err) => {
-          
     //     // In case of a error throw err.
     //     if (err) throw err;
     // })
