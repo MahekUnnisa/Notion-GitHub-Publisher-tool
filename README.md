@@ -4,9 +4,16 @@ This repository is a NodeJS tool with fetches your Code snippets in Notion pages
 ## TODO
 - [X] Intro to Notion APIs
 - [X] Fetch all the databases
-- [X] Fetch PageID for each page with a forloop 
-- [ ] Retrieve child blocks in each page using a for loop
 - [X] Create a server
+- [X] Fetch PageID for each page with a forloop 
+- [X] Retrieve code blocks in each page
+- [ ] Work on Logic - **Pending**
+- [ ] Retrieve child blocks in each page using a for loop
+- [ ] Cleanup Code and Use recursion
+- [ ] Commenting wherever required
 - [ ] Intro to Github APIs
+- [ ] Design Frontend using TailwindCSS
 - [ ] Build frontend
-- [ ] Retrieve code blocks in each page
+
+**Anybody can involve for frontend. Open to contributions by collaboration**
+
