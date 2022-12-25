@@ -1,4 +1,3 @@
-
 const express = require('express')
 const app = express()
 const path = require('path');
@@ -15,7 +14,7 @@ app.use('/static', express.static('static'))
 
 //route
 app.get('/', (req, res)=>{
-    res.status(200);
+    // res.status(200);
     res.sendFile(path.join(__dirname, 'routes/home.html'));
 });
 
