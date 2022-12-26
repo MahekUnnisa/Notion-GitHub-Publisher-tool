@@ -1,12 +1,15 @@
-const getpagedetails = require('./getpages.js');
-const getchildren = require('./getchildren');
-// const ids = require('./object')
+const getPageContent = require('./getpages.js');
+// const getchildren = require('./getchildren');
+
 
 const { Client } = require("@notionhq/client") 
 const dotenv = require('dotenv').config()
+
 const notion_key = process.env.NOTION_TOKEN
 const databaseId = process.env.NOTION_DATABASE_ID
-const ids = []
+
+//array to store all the page ids
+const pageIds = []
 
 const notion = new Client({ 
     auth: notion_key,
@@ -31,13 +34,13 @@ const getdbs = async (ids) => {
         const s = response.results[i].id
         ids.push(s)
     }
-    // console.log(ids.length);
+   
     for(j = 0; j<= ids.length-1; j++){
         //it will return the blocks
-        getpagedetails(ids[j])
+        getPageContent(ids[j])
     }
 }
-getdbs(ids)
+getdbs(pageIds)
 
 
 

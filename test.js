@@ -1,9 +1,10 @@
 const { Client } = require("@notionhq/client") 
-const getchildren = require("./getchildren")
+const getchildren = require("./retrievetoggle")
 const dotenv = require('dotenv').config()
 const notion_key = process.env.NOTION_TOKEN
 const databaseId = process.env.NOTION_DATABASE_ID
 const ids = []
+const fs = require('fs');
 
 const notion = new Client({ 
     auth: notion_key,
@@ -57,7 +58,9 @@ const retrievechild = async(id)=>{
     const response = await notion.blocks.retrieve({
     block_id: id,
   });
-  console.log(response.code);//check here
+  const res = response.code.rich_text[0].text.content
+  fs.appendFileSync('./content.cpp', res)
+  //check here
 }
 // const Id='d291eee7-4cfd-4387-aeda-fe7cd7715705'//contains duplicate//find dupes in an array
 // retrievechildren(Id)
