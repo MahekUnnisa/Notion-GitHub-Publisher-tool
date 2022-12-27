@@ -14,7 +14,20 @@ const create_repo = async() => {
         homepage: 'https://github.com',
         'private': false,
         is_template: true
-      })
-    console.log(response)
+    })
 }
-create_repo()
+const addfiles = async() => {
+    const response = await octokit.request('PUT /repos/{owner}/{repo}/contents/{path}', {
+        owner: 'mahekunnisa',
+        repo: 'Hello-World',
+        path: '/folder',
+        message: 'added a test file',
+        committer: {
+          name: 'Mahek Unnisa',
+          email: 'mahekunnisa786@gmail.com'
+        },
+        content: 'Test some content addition'
+    })
+}
+
+// create_repo()
