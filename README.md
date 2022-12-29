@@ -9,9 +9,10 @@ This repository is a NodeJS tool with fetches your Code snippets in Notion pages
 - [X] Retrieve code blocks in each page
 - [X] Retrieve child blocks in each page using a for loop
 - [X] Commenting wherever required
-- [ ] Intro to Github APIs
+- [X] Intro to Github APIs
+- [X] Create a repo
 - [ ] Work on Logic - **Pending**
-- [ ] Cleanup Code and Use recursion
+- [ ] Add files to github repo
 - [ ] Design Basic frontend using tailwind CDN
 - [ ] Build frontend
 
