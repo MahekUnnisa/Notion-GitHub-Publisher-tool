@@ -19,15 +19,16 @@ const create_repo = async() => {
 const addfiles = async() => {
     const response = await octokit.request('PUT /repos/{owner}/{repo}/contents/{path}', {
         owner: 'mahekunnisa',
-        repo: 'Hello-World',
-        path: '/folder',
+        repo: 'DSAlgo-CPP',
+        path: 'Math',
         message: 'added a test file',
         committer: {
           name: 'Mahek Unnisa',
           email: 'mahekunnisa786@gmail.com'
         },
-        content: 'Test some content addition'
+        content: 'VGVzdCBzb21lIGNvbnRlbnQgYWRkaXRpb24='
     })
 }
 
 // create_repo()
+addfiles()
