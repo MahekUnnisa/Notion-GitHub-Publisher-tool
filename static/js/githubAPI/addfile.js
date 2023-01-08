@@ -1,36 +1,19 @@
-var axios = require('axios');
-var fs = require('fs');
-var base64 = require('base-64');
+var github = require('octonode');
 
-const github_token = process.env.GITHUB_TOKEN
-let file = fs.readFileSync("../githubAPI/abc.txt").toString();
-console.log(file);
-var content = base64.encode(file);
-console.log(content);
-uploadFileApi(github_token, content)
+// Then we instantiate a client with or without a token (as show in a later section)
 
-function uploadFileApi(token, content) {
+var ghme           = client.me();
+var ghuser         = client.user('pksunkara');
+var ghrepo         = client.repo('pksunkara/hub');
+var ghorg          = client.org('flatiron');
+var ghissue        = client.issue('pksunkara/hub', 37);
+var ghmilestone    = client.milestone('pksunkara/hub', 37);
+var ghlabel        = client.label('pksunkara/hub', 'todo');
+var ghpr           = client.pr('pksunkara/hub', 37);
+var ghrelease      = client.release('pksunkara/hub', 37);
+var ghgist         = client.gist();
+var ghteam         = client.team(37);
+var ghproject      = client.project(37);
+var ghnotification = client.notification(37);
 
-    var data = JSON.stringify({
-        "message": "txt file",
-        "content": `${content}`
-    });
-
-    var config = {
-        method: 'put',
-        url: 'https://api.github.com/repos/mahekunnisa/DSAlgo-CPP/contents/abc.txt',
-        headers: {
-            'Authorization': `Bearer ${token}`,
-            'Content-Type': 'application/json'
-        },
-        data: data
-    };
-
-    axios(config)
-        .then(function (response) {
-            console.log(JSON.stringify(response.data));
-        })
-        .catch(function (error) {
-            console.log(error);
-        });
-}
+var ghsearch = client.search();
